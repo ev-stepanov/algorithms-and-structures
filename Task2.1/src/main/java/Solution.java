@@ -3,8 +3,9 @@ package main.java;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Map;
-import java.util.Stack;
 
 public class Solution {
     private static final Map<Character, Character> pairs = Map.of(
@@ -15,7 +16,7 @@ public class Solution {
 
     public static void main(String[] args) {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            Stack<Bracket> stack = new Stack<>();
+            Deque<Bracket> stack = new ArrayDeque<>();
             char[] chars = reader.readLine().toCharArray();
             for (int i = 0; i < chars.length; i++) {
                 if (pairs.containsKey(chars[i])) {
@@ -38,7 +39,7 @@ public class Solution {
         }
     }
 
-    public static class Bracket {
+    private static class Bracket {
         private final char ch;
         private final int index;
 
